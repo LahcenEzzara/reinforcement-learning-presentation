@@ -1,0 +1,151 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% A Beamer template for HKUST (GZ)                   %
+% Based on THU beamer theme                          %
+% Author: Yuxuan HU                                  %
+% Date: Aug 2024                                    %
+% LPPL Licensed.                                     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[serif, aspectratio=169]{beamer}
+%\documentclass[serif]{beamer}  % for 4:3 ratio
+\usepackage[T1]{fontenc} 
+\usepackage{fourier} % see "http://faq.ktug.org/wiki/uploads/MathFonts.pdf" for other options
+\usepackage{hyperref}
+\usepackage{latexsym,amsmath,xcolor,multicol,booktabs,calligra}
+\usepackage{graphicx,pstricks,listings,stackengine}
+\usepackage{lipsum}
+
+\author{Your Name}
+\title{Your Main Title}
+\subtitle{Your Subtitle}
+\institute{
+   @connect.hkust-gz.edu.cn \\
+    Urban Governance and Design Thrust, Society Hub \\
+    The Hong Kong University of Science and Technology(GZ) \\
+}
+\date{\small \today}
+\usepackage{style}
+
+% defs
+\def\cmd#1{\texttt{\color{red}\footnotesize $\backslash$#1}}
+\def\env#1{\texttt{\color{blue}\footnotesize #1}}
+% set colors
+\definecolor{hkustyellow}{RGB}{167, 131, 55}
+\definecolor{hkustblue}{RGB}{0, 56, 116}
+\definecolor{hkustred}{RGB}{209, 51, 59}
+
+
+\lstset{
+    basicstyle=\ttfamily\small,
+    keywordstyle=\bfseries\color{deepblue},
+    emphstyle=\ttfamily\color{deepred},    % Custom highlighting style
+    stringstyle=\color{deepgreen},
+    numbers=left,
+    numberstyle=\small\color{halfgray},
+    rulesepcolor=\color{red!20!green!20!blue!20},
+    frame=shadowbox,
+}
+
+%- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
+\begin{document}
+
+\begin{frame}
+    \titlepage
+    \vspace*{-0.6cm}
+    \begin{figure}[htpb]
+        \begin{center}
+            \includegraphics[keepaspectratio, scale=0.02]{images/UST.png}
+        \end{center}
+    \end{figure}
+\end{frame}
+
+\begin{frame}    
+\tableofcontents[sectionstyle=show,
+subsectionstyle=show/shaded/hide,
+subsubsectionstyle=show/shaded/hide]
+\end{frame}
+
+% Introduction --- --- --- --- --- --- --- --- --- --- --- --- 
+
+\section{Introduction}
+\begin{frame}{Background and Motivation}
+	\frametitle<presentation>{Background and Motivation}
+	\begin{block}{Why to give a presentation:}
+		\begin{itemize}
+			\item show the main arguments and results of your work
+			\item produce interest to read the full paper/report
+			\item goal: be educational and also entertaining
+		\end{itemize}
+	\end{block}
+	\begin{block}{Advantages of using \LaTeX ~with the beamer package:}
+		\begin{itemize}
+			\item very easy if the report is already written in \LaTeX
+			\item different themes which are usable in practice
+			\item possibility to create handouts using \emph{beamerarticle}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}{Research question}
+
+   this is a Research question.
+
+\end{frame}
+
+% Literature Review --- --- --- --- --- --- --- --- --- --- --- 
+\section{Literature Review}
+\begin{frame}{Research gap}
+
+   this is a Literature gap.
+
+\end{frame}
+
+\begin{frame}{Research question}
+
+   this is a Literature Review.
+
+\end{frame}
+
+% Methods --- --- --- --- --- --- --- --- --- --- --- 
+\section{Methods}
+\begin{frame}{Title}
+    \begin{itemize}
+        \item different themes which are usable in practice
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle<presentation>{Figures}
+	\begin{figure}
+		\centering
+			\includegraphics[height=5cm]{images/UST.png}
+		\caption{Logo of the university.}
+		\label{fig:unilogo}
+	\end{figure}
+\end{frame}
+
+
+% Results --- --- --- --- --- --- --- --- --- --- --- 
+\section{Results}
+\begin{frame}
+    \begin{itemize}
+        \item different themes
+        \item different themes
+        \item different themes
+        \item different themes
+    \end{itemize}
+\end{frame}
+
+
+% --- Thank you slide ---
+\begin{frame}
+\begin{center}
+{ Thank you for listening !}
+\vspace{1cm}
+
+Your Name \\[1em]
+@connect.hkust-gz.edu.cn 
+\end{center}
+\end{frame}
+
+\end{document}
