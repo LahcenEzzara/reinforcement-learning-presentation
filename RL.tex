@@ -17,7 +17,7 @@
 \title{Reinforcement Learning (RL)}
 \subtitle{Tendances IT}
 \institute{
-   zetati.abdelhakim@ensam-casa.ma -- ezzara.lahcen@ensam-casa.ma \\
+   zetati.abdehakim@ensam-casa.ma -- ezzara.lahcen@ensam-casa.ma \\
     Université Hassan II de Casablanca \\
     ENSAM Casablanca \\
 }
@@ -171,7 +171,7 @@ subsubsectionstyle=show/shaded/hide]
 	Le retour au temps t en apprentissage par renforcement est la récompense cumulée totale d'un épisode, calculée comme suit :
 	
 	\[
-	G_t \equiv R_{t+1} + \gamma R_{t+2} + \gamma^2 R_{t+3} + \cdots = \sum_{k=0}^{\infty} \gamma^k R_{t+k+1}
+	G_t \equiv R_{t+1} + \gamma R_{t+2} + \gamma^2 R_{t+3} + \cdots = \sum_{k=0} \gamma^k R_{t+k+1}
 	\]
 	
 	\vspace{10pt}
@@ -206,7 +206,7 @@ subsubsectionstyle=show/shaded/hide]
 	\vspace{10pt}
 	
 	\[
-	v_\pi(s) \equiv E_\pi[G_t \mid S_t = s] = E_\pi\left[\sum_{k=0}^{\infty} \gamma^{k+1} R_{t+k+1} \mid S_t = s\right]
+	v_\pi(s) \equiv E_\pi[G_t \mid S_t = s] = E_\pi\left[\sum_{k=0} \gamma^{k+1} R_{t+k+1} \mid S_t = s\right]
 	\]
 	
 \end{frame}
@@ -218,7 +218,7 @@ subsubsectionstyle=show/shaded/hide]
 	De plus, nous pouvons également définir une valeur pour chaque paire état-action, qui est appelée la fonction de valeur d'action et est notée \( q_\pi(s, a) \). La fonction de valeur d'action fait référence au retour attendu \( G_t \) lorsque l'agent est à l'état \( S_t = s \) et prend l'action \( A_t = a \). En étendant la définition de la fonction de valeur d'état aux paires état-action, nous obtenons ce qui suit :
 	
 	\[
-	q_\pi(s, a) \equiv E_\pi[G_t \mid S_t = s, A_t = a] = E_\pi\left[\sum_{k=0}^{\infty} \gamma^{k+1} R_{t+k+1} \mid S_t = s, A_t = a\right]
+	q_\pi(s, a) \equiv E_\pi[G_t \mid S_t = s, A_t = a] = E_\pi\left[\sum_{k=0} \gamma^{k+1} R_{t+k+1} \mid S_t = s, A_t = a\right]
 	\]
 	
 	Ceci est similaire à la référence à la politique optimale en tant que \( \pi_*(a \mid s) \); \( v_*(s) \) et \( q_*(s, a) \) désignent également les fonctions de valeur d'état et de valeur d'action optimales.
