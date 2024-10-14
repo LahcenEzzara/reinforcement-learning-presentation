@@ -67,33 +67,33 @@ subsubsectionstyle=show/shaded/hide]
 
 \section{Introduction au RL}
 
-\begin{frame}{Comprendre l'Apprentissage par Renforcement}
-	\frametitle<presentation>{Comprendre l'Apprentissage par Renforcement}
-	\begin{block}{Reinforcement Learning (RL):}
+\begin{frame}{Comprendre l'apprentissage par renforcement}
+	\frametitle<presentation>{Comprendre l'apprentissage par renforcement}
+	
 		\begin{itemize}
 			\item \textbf{L'apprentissage par renforcement (RL)} se distingue en apprenant à travers des interactions avec un environnement pour maximiser une fonction de récompense, sans étiquettes correctes prédéfinies, ce qui le rend utile pour la prise de décision dans des environnements complexes.
 		\end{itemize}
-	\end{block}
+
 \end{frame}
 
 % Interface Agent-Environnement --- --- --- --- --- --- --- --- --- --- --- ---
 
 \section{Interface Agent-Environnement}
 
-\begin{frame}{L'Interface Agent-Environnement d'un Système d'Apprentissage par Renforcement}
-	\frametitle<presentation>{L'Interface Agent-Environnement d'un Système d'Apprentissage par Renforcement}
+\begin{frame}{L'interface agent-environnement d'un système d'apprentissage par renforcement}
+	\frametitle<presentation>{L'interface agent-environnement d'un système d'apprentissage par renforcement}
 	
 	L'état de l'agent est composé de ses variables, et il interagit avec l'environnement à travers des actions, recevant des récompenses qui guident ses transitions d'état. Le processus d'apprentissage implique de trouver un équilibre entre l'exploration (essayer de nouvelles actions) et l'exploitation (choisir des actions avec des récompenses connues) pour maximiser les récompenses cumulées au fil du temps. 
 	
 \end{frame}
 
-\begin{frame}{L'Interface Agent-Environnement d'un Système d'Apprentissage par Renforcement}
+\begin{frame}{L'interaction entre l'agent et son environnement}
+	\frametitle<presentation>{L'interaction entre l'agent et son environnement}
 	
 	\begin{figure}[htpb]
 		\centering
 		\includegraphics[keepaspectratio, scale=0.6]{images/interface-agent-environnement.png}
-		\caption{L'Interface Agent-Environnement d'un Système d'Apprentissage par Renforcement}
-		\label{fig:agent-environment}
+		\caption{L'interaction entre l'agent et son environnement}
 	\end{figure}
 	
 \end{frame}
@@ -102,15 +102,15 @@ subsubsectionstyle=show/shaded/hide]
 % Fondations Théoriques --- --- --- --- --- --- --- --- --- --- --- 
 \section{Fondations Théoriques}
 
-\begin{frame}{Les Processus de Décision de Markov}
-	\frametitle<presentation>{Les Processus de Décision de Markov}
+\begin{frame}{Les processus de décision de Markov}
+	\frametitle<presentation>{Les processus de décision de Markov}
 	
 	En général, le type de problèmes que l'apprentissage par renforcement (RL) traite est généralement formulé comme des processus de décision de Markov (MDP). L'approche standard pour résoudre les problèmes MDP est d'utiliser la programmation dynamique, mais l'apprentissage par renforcement offre certains avantages clés par rapport à la programmation dynamique. 
 	
 \end{frame}
 
-\begin{frame}{La Formulation Mathématique des Processus de Décision de Markov}
-	\frametitle{La Formulation Mathématique des Processus de Décision de Markov}
+\begin{frame}{La formulation mathématique des processus de décision de Markov}
+	\frametitle{La formulation mathématique des processus de décision de Markov}
 	
 	La distribution de probabilité pour \( S_{t+1} = s' \) et \( R_{t+1} = r \) peut être écrite comme une probabilité conditionnelle sur l'état précédent \( S_t \) et l'action prise \( A_t \) comme suit :
 	
@@ -124,19 +124,20 @@ subsubsectionstyle=show/shaded/hide]
 	
 \end{frame}
 
-\begin{frame}{Les Différents Modèles à Utiliser Selon la Dynamique de l'Environnement}
-	\frametitle{Les Différents Modèles à Utiliser Selon la Dynamique de l'Environnement}
+\begin{frame}{Les différents modèles à utiliser en fonction de la dynamique de l'environnement}
+	\frametitle{Les différents modèles à utiliser en fonction de la dynamique de l'environnement}
 	
 	\begin{figure}[htpb]
 		\centering
-		\includegraphics[keepaspectratio, scale=0.8]{images/markov.png}
+		\includegraphics[keepaspectratio, scale=0.7]{images/markov.png}
+		\caption{Les différents modèles à utiliser en fonction de la dynamique de l'environnement}
 	\end{figure}
 	
 \end{frame}
 
 
-\begin{frame}{Dynamique de l'Environnement : Déterministe ou Stochastique}
-	\frametitle{Dynamique de l'Environnement : Déterministe ou Stochastique}
+\begin{frame}{Dynamique de l'environnement : déterministe ou stochastique}
+	\frametitle{Dynamique de l'environnement : déterministe ou stochastique}
 		
 		La dynamique de l'environnement peut être considérée comme déterministe si des actions particulières pour des états donnés sont toujours ou jamais prises, c'est-à-dire \(p(s', r \mid s, a) \in \{0,1\}\). Sinon, dans le cas plus général, l'environnement aurait un comportement stochastique.
 		
@@ -146,8 +147,8 @@ subsubsectionstyle=show/shaded/hide]
 % Terminologie du RL --- --- --- --- --- --- --- --- --- --- --- 
 \section{Terminologie du RL}
 
-\begin{frame}{Terminologie de l'Apprentissage par Renforcement}
-	\frametitle{Terminologie de l'Apprentissage par Renforcement}
+\begin{frame}{Terminologie de l'apprentissage par renforcement}
+	\frametitle{Terminologie de l'apprentissage par renforcement}
 	
 	En apprentissage par renforcement, plusieurs concepts doivent s'envisager pour comprendre comment un agent interagit avec son environnement et maximise une fonction de récompense.
 	
@@ -230,6 +231,7 @@ subsubsectionstyle=show/shaded/hide]
 	\begin{figure}[htpb]
 		\centering
 		\includegraphics[keepaspectratio, scale=0.2]{images/graph.jpg}
+		\caption{Graphe}
 	\end{figure}
 	
 \end{frame}
@@ -245,18 +247,19 @@ subsubsectionstyle=show/shaded/hide]
 	
 \end{frame}
 
-\begin{frame}{Deep Q-Learning}
-	\frametitle{Deep Q-Learning}
+\begin{frame}{Exemple de DQN}
+	\frametitle{Exemple de DQN}
 	
 	\begin{figure}[htpb]
 		\centering
-		\includegraphics[keepaspectratio, scale=0.6]{images/dqn.png}
+		\includegraphics[keepaspectratio, scale=0.55]{images/dqn.png}
+		\caption{Exemple de DQN}
 	\end{figure}
 	
 \end{frame}
 
-\begin{frame}{Deep Q-Learning}
-	\frametitle{Deep Q-Learning}
+\begin{frame}{Q-values}
+	\frametitle{Q-values}
 	
 	Pour ce faire, nous pouvons modifier la règle de mise à jour pour prendre en compte la valeur Q maximale en variant les différentes actions dans l'état immédiat suivant. L'équation modifiée pour la mise à jour des valeurs Q est la suivante :
 	
@@ -267,19 +270,20 @@ subsubsectionstyle=show/shaded/hide]
 \end{frame}
 
 
-\begin{frame}{Deep Q-Learning}
-	\frametitle{Deep Q-Learning}
+\begin{frame}{Détermination de la valeur cible à l'aide du DQN}
+	\frametitle{Détermination de la valeur cible à l'aide du DQN}
 	
 	\begin{figure}[htpb]
 		\centering
-		\includegraphics[keepaspectratio, scale=0.35]{images/dqn-target.png}
+		\includegraphics[keepaspectratio, scale=0.3]{images/dqn-target.png}
+		\caption{Détermination de la valeur cible à l'aide du DQN}
 	\end{figure}
 	
 \end{frame}
 
 
-\begin{frame}{Deep Q-Learning}
-	\frametitle{Deep Q-Learning}
+\begin{frame}{Détermination de la valeur cible à l'aide du DQN}
+	\frametitle{Détermination de la valeur cible à l'aide du DQN}
 	
 	Nous traitons cela comme un problème de régression, en utilisant les trois quantités suivantes :
 	
