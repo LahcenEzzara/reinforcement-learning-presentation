@@ -124,8 +124,8 @@ subsubsectionstyle=show/shaded/hide]
 	
 \end{frame}
 
-\begin{frame}{La Formulation Mathématique des Processus de Décision de Markov}
-	\frametitle{La Formulation Mathématique des Processus de Décision de Markov}
+\begin{frame}{Les Différents Modèles à Utiliser Selon la Dynamique de l'Environnement}
+	\frametitle{Les Différents Modèles à Utiliser Selon la Dynamique de l'Environnement}
 	
 	\begin{figure}[htpb]
 		\centering
@@ -135,8 +135,8 @@ subsubsectionstyle=show/shaded/hide]
 \end{frame}
 
 
-\begin{frame}{La Formulation Mathématique des Processus de Décision de Markov}
-	\frametitle{La Formulation Mathématique des Processus de Décision de Markov}
+\begin{frame}{Dynamique de l'Environnement : Déterministe ou Stochastique}
+	\frametitle{Dynamique de l'Environnement : Déterministe ou Stochastique}
 		
 		La dynamique de l'environnement peut être considérée comme déterministe si des actions particulières pour des états donnés sont toujours ou jamais prises, c'est-à-dire \(p(s', r \mid s, a) \in \{0,1\}\). Sinon, dans le cas plus général, l'environnement aurait un comportement stochastique.
 		
@@ -146,16 +146,91 @@ subsubsectionstyle=show/shaded/hide]
 % Terminologie du RL --- --- --- --- --- --- --- --- --- --- --- 
 \section{Terminologie du RL}
 
-\begin{frame}{Lorem Ipsum Dolor Sit Amet}
-	\frametitle{Lorem Ipsum Dolor Sit Amet}
+\begin{frame}{Terminologie de l'Apprentissage par Renforcement}
+	\frametitle{Terminologie de l'Apprentissage par Renforcement}
 	
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dignissim mi et faucibus interdum. Etiam nisl sapien, auctor in hendrerit non, laoreet auctor dolor. Pellentesque vel ex id dui blandit porttitor ut vitae risus.
+	En apprentissage par renforcement, plusieurs concepts doivent s'envisager pour comprendre comment un agent interagit avec son environnement et maximise une fonction de récompense.
 	
-	\vspace{20pt}
+	\vspace{10pt}
 	
-	\begin{quote}
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum. Cras venenatis euismod malesuada.
-	\end{quote}
+	\begin{itemize}
+		\item \textbf{Retour (Return)}.
+		
+		\item \textbf{Politique (Policy)}.
+		
+		\item \textbf{Fonction de Valeur (Value Function)}.
+	\end{itemize}
+	
+\end{frame}
+
+
+\begin{frame}{Retour (Return)}
+	\frametitle{Retour (Return)}
+	
+	Le retour au temps t en apprentissage par renforcement est la récompense cumulée totale d'un épisode, calculée comme suit :
+	
+	\[
+	G_t \equiv R_{t+1} + \gamma R_{t+2} + \gamma^2 R_{t+3} + \cdots = \sum_{k=0}^{\infty} \gamma^k R_{t+k+1}
+	\]
+	
+	\vspace{10pt}
+	
+	\[
+	G_t = R_{t+1} + \gamma G_{t+1} = r + \gamma G_{t+1}
+	\]
+	
+\end{frame}
+
+\begin{frame}{Politique (Policy)}
+	\frametitle{Politique (Policy)}
+	
+	Une politique, généralement notée \( \pi(a \mid s) \), est une fonction qui détermine la prochaine action à prendre. Elle peut être soit déterministe, soit stochastique (c'est-à-dire la probabilité de prendre la prochaine action). Une politique stochastique a alors une distribution de probabilité sur les actions qu'un agent peut prendre dans un état donné :
+	
+	\[
+	\pi(a \mid s) \equiv P[A_t = a \mid S_t = s]
+	\]
+	
+	\vspace{10pt}
+	
+	La politique optimale \( \pi_*(a \mid s) \) est celle qui génère le retour le plus élevé.
+	
+\end{frame}
+
+
+\begin{frame}{Fonction de Valeur (Value Function)}
+	\frametitle{Fonction de Valeur (Value Function)}
+	
+	La fonction de valeur, également appelée fonction de valeur d'état, mesure la qualité de chaque état, c'est-à-dire à quel point il est bon ou mauvais d'être dans un état particulier. Notez que le critère de qualité est basé sur le retour. Maintenant, sur la base du retour \( G_t \), nous définissons la fonction de valeur de l'état \( s \) comme le retour attendu (le retour moyen sur tous les épisodes possibles) après avoir suivi la politique \( \pi \) :
+	
+	\vspace{10pt}
+	
+	\[
+	v_\pi(s) \equiv E_\pi[G_t \mid S_t = s] = E_\pi\left[\sum_{k=0}^{\infty} \gamma^{k+1} R_{t+k+1} \mid S_t = s\right]
+	\]
+	
+\end{frame}
+
+
+\begin{frame}{Fonction de Valeur (Value Function)}
+	\frametitle{Fonction de Valeur (Value Function)}
+	
+	De plus, nous pouvons également définir une valeur pour chaque paire état-action, qui est appelée la fonction de valeur d'action et est notée \( q_\pi(s, a) \). La fonction de valeur d'action fait référence au retour attendu \( G_t \) lorsque l'agent est à l'état \( S_t = s \) et prend l'action \( A_t = a \). En étendant la définition de la fonction de valeur d'état aux paires état-action, nous obtenons ce qui suit :
+	
+	\[
+	q_\pi(s, a) \equiv E_\pi[G_t \mid S_t = s, A_t = a] = E_\pi\left[\sum_{k=0}^{\infty} \gamma^{k+1} R_{t+k+1} \mid S_t = s, A_t = a\right]
+	\]
+	
+	Ceci est similaire à la référence à la politique optimale en tant que \( \pi_*(a \mid s) \); \( v_*(s) \) et \( q_*(s, a) \) désignent également les fonctions de valeur d'état et de valeur d'action optimales.
+	
+\end{frame}
+
+\begin{frame}{Quelle est la différence entre la récompense, le retour et la fonction de valeur?}
+	\frametitle{Quelle est la différence entre la récompense, le retour et la fonction de valeur?}
+	
+	\begin{figure}[htpb]
+		\centering
+		\includegraphics[keepaspectratio, scale=0.2]{images/graph.jpg}
+	\end{figure}
 	
 \end{frame}
 
@@ -163,18 +238,59 @@ subsubsectionstyle=show/shaded/hide]
 % Deep Q-Learning --- --- --- --- --- --- --- --- --- --- --- 
 \section{Deep Q-Learning}
 
-\begin{frame}{Lorem Ipsum Dolor Sit Amet}
-	\frametitle{Lorem Ipsum Dolor Sit Amet}
+\begin{frame}{Deep Q-Learning}
+	\frametitle{Deep Q-Learning}
 	
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dignissim mi et faucibus interdum. Etiam nisl sapien, auctor in hendrerit non, laoreet auctor dolor. Pellentesque vel ex id dui blandit porttitor ut vitae risus.
-	
-	\vspace{20pt}
-	
-	\begin{quote}
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum. Cras venenatis euismod malesuada.
-	\end{quote}
+	Lorsque la fonction d'approximation, \( q_w(x_s, a) \), est un réseau de neurones profond (DNN), le modèle résultant est appelé un réseau Q profond (DQN). Pour entraîner un modèle DQN, les poids sont mis à jour conformément à l'algorithme Q-learning.
 	
 \end{frame}
+
+\begin{frame}{Deep Q-Learning}
+	\frametitle{Deep Q-Learning}
+	
+	\begin{figure}[htpb]
+		\centering
+		\includegraphics[keepaspectratio, scale=0.6]{images/dqn.png}
+	\end{figure}
+	
+\end{frame}
+
+\begin{frame}{Deep Q-Learning}
+	\frametitle{Deep Q-Learning}
+	
+	Pour ce faire, nous pouvons modifier la règle de mise à jour pour prendre en compte la valeur Q maximale en variant les différentes actions dans l'état immédiat suivant. L'équation modifiée pour la mise à jour des valeurs Q est la suivante :
+	
+	\[
+	Q(S_t, A_t) \leftarrow Q(S_t, A_t) + \alpha [R_{t+1} + \gamma \max_{a} Q(S_{t+1}, a) - Q(S_t, A_t)]
+	\]
+	
+\end{frame}
+
+
+\begin{frame}{Deep Q-Learning}
+	\frametitle{Deep Q-Learning}
+	
+	\begin{figure}[htpb]
+		\centering
+		\includegraphics[keepaspectratio, scale=0.35]{images/dqn-target.png}
+	\end{figure}
+	
+\end{frame}
+
+
+\begin{frame}{Deep Q-Learning}
+	\frametitle{Deep Q-Learning}
+	
+	Nous traitons cela comme un problème de régression, en utilisant les trois quantités suivantes :
+	
+	\begin{itemize}
+		\item Les valeurs prédites actuellement, \( q_w(x_s, :) \)
+		\item Le vecteur de valeur cible tel que décrit
+		\item La fonction de perte standard d'erreur quadratique moyenne (MSE)
+	\end{itemize}
+	
+\end{frame}
+
 
 
 % --- Thank you slide ---
